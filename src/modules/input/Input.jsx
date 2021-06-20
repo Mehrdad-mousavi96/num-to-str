@@ -5,7 +5,7 @@ import { MainInput } from "./InputStyle"
 const Input = () => {
     return (
         <MainInput>
-
+                
         </MainInput>
     )
 }

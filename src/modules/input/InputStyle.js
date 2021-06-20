@@ -1,18 +1,31 @@
 import styled from "styled-components";
 
-export const MainInput = styled.input`
+export const MainInput = styled.input.attrs({
+  placeholder: "Enter a Number",
+})`
   width: 15rem;
   height: 2.5rem;
   background: PaleVioletRed;
-  border-radius: 0.5rem;
-  outline: none;
+  border-radius: 0.4rem;
   border: none;
+  outline: none;
   font-size: 1.2rem;
   color: Indigo;
   padding: 0 1.2rem;
   cursor: pointer;
+  display: flex;
+  text-align: center;
+
+  &::placeholder {
+    color: black;
+    font-size: 1.2rem;
+    
+  }
 
   :focus {
-    box-shadow: 1px 2px 1px 1px PeachPuff;
+  }
+
+  @media only screen and (max-width: 375px) {
+    margin-top: 2rem;
   }
 `;

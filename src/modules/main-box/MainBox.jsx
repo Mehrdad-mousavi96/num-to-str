@@ -1,10 +1,14 @@
 import React from 'react'
 
+import {Container, Content} from "./MainBoxStyle"
+
 const MainBox = () => {
     return (
-        <div>
-            Main Box
-        </div>
+        <Container>
+            <Content>
+                Two hundred and fifty
+            </Content>
+        </Container>
     )
 }
 

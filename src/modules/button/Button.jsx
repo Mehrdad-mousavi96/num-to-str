@@ -5,7 +5,7 @@ import { MainButton } from "./ButtonStyle"
 const Button = () => {
     return (
         <MainButton>
-            Click Me
+            Click Me!
         </MainButton>
     )
 }
