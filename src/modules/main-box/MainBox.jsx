@@ -1,13 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
+// import { ValueContext } from '../core/context/Provider';
 
-import {Container, Content} from "./MainBoxStyle"
+import { Container, Content } from "./MainBoxStyle"
 
-const MainBox = () => {
+const MainBox = ({value}) => {
     return (
         <Container>
             <Content>
-                Two hundred and fifty
+                {value}
             </Content>
+            
+            
         </Container>
     )
 }

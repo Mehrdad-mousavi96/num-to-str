@@ -2,12 +2,31 @@ import React from 'react'
 
 import { MainInput } from "./InputStyle"
 
-const Input = () => {
+
+
+const Input = ({value, setValue}) => {
+
+
+    const inputHandler = (e) => {
+        let numberInput = e.target.value;
+        let final = parseInt(numberInput);
+
+        setValue(final);
+      
+    }
+
     return (
-        <MainInput>
+        <div>
+          
+            <MainInput onChange={inputHandler}>
                 
-        </MainInput>
+            </MainInput>
+            
+        
+        </div>
+        
     )
 }
+
 
 export default Input

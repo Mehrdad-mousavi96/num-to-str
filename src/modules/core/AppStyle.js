@@ -2,10 +2,15 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+
+  @media only screen and (max-width: 375px) {
     display: grid;
-    align-items: center;
+    place-items: center;
+  }
 `;
 
 export const Top = styled.div`
@@ -29,4 +34,7 @@ export const Bottom = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media only screen and (max-width: 375px) {
+    margin-top: 1rem;
+  }
 `;

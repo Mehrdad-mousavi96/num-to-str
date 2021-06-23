@@ -5,14 +5,14 @@ export const MainInput = styled.input.attrs({
 })`
   width: 15rem;
   height: 2.5rem;
-  background: PaleVioletRed;
+  background: lightblue;
   border-radius: 0.4rem;
   border: none;
   outline: none;
   font-size: 1.2rem;
   color: Indigo;
   padding: 0 1.2rem;
-  cursor: pointer;
+  cursor: text;
   display: flex;
   text-align: center;
 

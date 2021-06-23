@@ -4,13 +4,16 @@ export const Container = styled.div`
   width: 90%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
-  border-top: 0.15rem solid grey;
-  border-right: 0.15rem solid grey;
-  border-left: 0.15rem solid grey;
-
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Content = styled.h3`
-    margin-left: 2rem;
+    width: 70rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 `;

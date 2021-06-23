@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Input from "../input/Input"
-import Button from "../button/Button"
 import MainBox from "../main-box/MainBox"
 
+import { inputHandler } from "../input/Input"
 import { Container, Top, Bottom } from "./AppStyle"
-
 const App = () => {
+  const [value, setValue] = useState('');
+
+ 
+
   return (
-    <Container>
+        <Container>
 
-      <Top>
-        <Input />
-        <Button />
-      </Top>
+            <Top>
+        <Input value={value} setValue={setValue}/>
+            </Top>
+        
+          
+          <Bottom>
+            <MainBox value={value} />
+          </Bottom>
 
-      <Bottom>
-        <MainBox />
-      </Bottom>
-
-    </Container>
+        </Container>
   );
 }
 
