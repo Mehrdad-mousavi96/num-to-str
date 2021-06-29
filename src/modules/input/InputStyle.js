@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainInput = styled.input.attrs({
   placeholder: "Enter a Number",
+  type: 'number'
 })`
   width: 15rem;
   height: 2.5rem;
@@ -15,6 +16,7 @@ export const MainInput = styled.input.attrs({
   cursor: text;
   display: flex;
   text-align: center;
+
 
   &::placeholder {
     color: black;

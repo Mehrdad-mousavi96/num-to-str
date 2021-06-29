@@ -29,7 +29,7 @@ export const Top = styled.div`
 
 export const Bottom = styled.div`
   width: 100%;
-  height: 75vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.h3`
-    width: 70rem;
+    width: 100%;
     height: 2rem;
     display: flex;
     justify-content: center;

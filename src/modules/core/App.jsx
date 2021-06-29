@@ -13,7 +13,7 @@ const App = () => {
         <Container>
 
             <Top>
-        <Input value={value} setValue={setValue}/>
+              <Input value={value} setValue={setValue}/>
             </Top>
         
           
