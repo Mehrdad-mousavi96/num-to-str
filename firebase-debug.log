@@ -1,0 +1,18 @@
+[debug] [2021-06-30T12:53:45.871Z] ----------------------------------------------------------------------
+[debug] [2021-06-30T12:53:45.878Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HashMan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js use --add
+[debug] [2021-06-30T12:53:45.879Z] CLI Version:   9.8.0
+[debug] [2021-06-30T12:53:45.879Z] Platform:      win32
+[debug] [2021-06-30T12:53:45.880Z] Node Version:  v12.16.3
+[debug] [2021-06-30T12:53:45.883Z] Time:          Wed Jun 30 2021 17:23:45 GMT+0430 (Iran Daylight Time)
+[debug] [2021-06-30T12:53:45.883Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-30T12:53:45.890Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-06-30T12:53:45.961Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-30T12:53:45.962Z] > authorizing via signed-in user
+[debug] [2021-06-30T12:53:45.978Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2021-06-30T12:53:46.756Z] Failed to make request: invalid json response body at https://firebase.googleapis.com/v1beta1/projects?pageSize=1000 reason: Unexpected token < in JSON at position 0
+[debug] [2021-06-30T12:53:47.676Z] FirebaseError: Failed to make request: invalid json response body at https://firebase.googleapis.com/v1beta1/projects?pageSize=1000 reason: Unexpected token < in JSON at position 0
+    at Client.request (C:\Users\HashMan\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:109:19)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
