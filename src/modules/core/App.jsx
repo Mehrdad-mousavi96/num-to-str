@@ -18,7 +18,7 @@ const App = () => {
         
           
           <Bottom>
-            <MainBox value={value} />
+            <MainBox value={value} setValue={setValue}/>
           </Bottom>
 
         </Container>

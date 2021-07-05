@@ -7,16 +7,16 @@ const numToWord = (num) => {
 
     /////////////////////////////////////////////main requirements///////////////////////////////////////////////////
     
-    const dash = "-"
-    const and = " and ";
-    const hundred = " hundred ";
-    const thousand = " thousand ";
-    const million = " million "
+     const dash = "-"
+     const and = " and ";
+     const hundred = " hundred ";
+     const thousand = " thousand ";
+     const million = " million "
     
-        let base = ['zero','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ',
+     const base = ['zero','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ',
     'eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen ']
         
-    let tenth = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety']
+     const tenth = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety']
     
     ///////////////////////////////////////////smaller than 20///////////////////////////////////////////////////////
     
@@ -82,7 +82,7 @@ const numToWord = (num) => {
 
     //////////////////////////////////////////////numbers greater than 1000///////////////////////////////////////////
 
-    else if (num >= 1000) {
+    else if (num > 1000 && num <10000) {
         let left = num[0]
         let left1 = num[1]
         let right = num[2]
@@ -220,16 +220,226 @@ const numToWord = (num) => {
                 return main
             }
             
+            
          }
     }
 
     ////////////////////////////////////////greater than 10000/////////////////////////////////////////////////
 
-    else if (num >= 10000) {
-        let hi = num * 2
-        return hi
+    else if (num >= 10000 && num < 100000) {
+
+        let left = num[0]
+        let left1 = num[1]
+        let middle = num[2]
+        let right = num[3]
+        let right1 = num[4]
+        let mainLeft = left + left1
+        let mainRight = right + right1
+
+                                    //////////// %100 /////////////////////////
+        if (num % 1000 == 0) {
+            if (mainLeft % 10 == 0) {
+                if (mainLeft == 10) {
+                    let main = base[10] + `${thousand}`
+                    return main
+                }
+                let main = tenth[left] + `${thousand}`
+                return main
+            }
+            else if (mainLeft <= 19) {
+                let main = base[mainLeft] + `${thousand}`
+                return main
+            }
+            else if (mainLeft > 19) {
+                let main = tenth[left] + `${dash}` + base[left1] + `${thousand}`
+                return main
+            }
         }
 
+                                    ///////////// %100 ///////////////
+        else if (num % 100 == 0) {
+            if (mainLeft <= 19) {
+                let main = base[mainLeft] + `${thousand}` + base[middle] + `${hundred}`
+                return main
+            }
+            else if (mainLeft > 10 && mainLeft % 10 == 0) {
+                let main = tenth[left] + `${thousand}` + base[middle] + `${hundred}`
+                return main
+            }
+            else if (mainLeft > 19) {
+                let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + base[middle] + `${hundred}`
+                return main
+            }
+            
+            let main = base[mainLeft] + `${thousand}` + base[middle] + `${hundred}`
+            return main
+        }
+            
+                                ///////////// %10 == 0 /////////////
+        else if (num % 10 == 0) {
+            if (mainLeft % 10 == 0) {
+                if (middle == 0) {
+                    if (mainLeft == 10) {
+                        if (mainRight == 10) {
+                            let main = base[10] + `${thousand}` + `${and}` + base[10]
+                            return main
+                        }
+                        let main = base[10] + `${thousand}` + `${and}` + tenth[right]
+                        return main
+                    }
+                    if (mainRight == 10) {
+                        let main = tenth[left] + `${thousand}` + `${and}` + base[10]
+                        return main
+                    }
+                    let main = tenth[left] + `${thousand}` + `${and}` + tenth[right]
+                    return main
+                }
+                else if (mainLeft == 10) {
+                    if (mainRight == 10) {
+                        if (middle == 0) {
+                            let main = base[10] + `${thousand}` + `${and}` + base[10]
+                            return main
+                        }
+                        let main = base[10] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right]
+                        return main
+                    }
+                    else if (middle == 0) {
+                        let main = base[10] + `${thousand}` + `${and}` + tenth[right]
+                        return main
+                    }
+                    
+                    else if (mainRight == 10 ) {
+                        let main = tenth[left] + `${thousand}` + `${and}` + tenth[right]
+                        return main
+                    }
+                }
+                
+                let main = tenth[left] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right]
+                return main
+            }
+                                    //////mainleft <= 19 ///////
+            else if (mainLeft <= 19) {
+                if (mainRight == 10) {
+                    if (middle == 0) {
+                        let main = base[mainLeft] + `${thousand}` + `${and}` + base[10]
+                        return main
+                    }
+                    let main = base[mainLeft] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + base[10]
+                    return main
+                }
+                else if (middle == 0) {
+                    let main = base[mainLeft] + `${thousand}` + `${and}` + tenth[right]
+                    return main
+                }
+                let main = base[mainLeft] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right]
+                return main
+            }
+
+                                //////////mainLeft > 19 ///////////
+            else if (mainLeft > 19) {
+                if (mainRight == 10) {
+                    if (mainLeft % 10 == 0) {
+                        let main = tenth[left] = `${thousand}` + `${and}` + base[10]
+                        return main
+                    }
+                    let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + `${and}` + base[10]
+                    return main
+                }
+                else if (middle = 0) {
+                    let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + `${and}` + tenth[right]
+                    return main
+                }
+                let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + `${and}` + tenth[right]
+                return main
+            }
+
+        }
+
+        else if (num % 10 != 0) {
+        
+            if (mainLeft % 10 == 0) {
+                
+                if (mainLeft == 10) {
+                    if (mainRight <= 19) {
+                        if (middle == 0) {
+                            let main = base[10] + `${thousand}` + `${and}` + base[mainRight]
+                            return main
+                        }
+                        let main = base[10] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + base[mainRight]
+                        return main
+                    }
+                    else if (mainRight > 19) {
+                        if (middle == 0) {
+                            let main = base[10] + `${thousand}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                            return main
+                        }
+                        let main = base[10] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                        return main
+                    }
+            }
+
+            else if (mainLeft != 10 && middle == 0) {
+                    if (mainRight <= 19) {
+                        let main = tenth[left] + `${thousand}` + `${and}` + base[mainRight]
+                        return main
+                    }
+                    else if (mainRight > 19) {
+                        let main = tenth[left] + `${thousand}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                        return main
+                    }
+                }
+            
+                else if (mainRight <= 19) {
+                    let main = tenth[left] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + base[mainRight]
+                    return main
+                }
+
+                else if (mainRight > 19) {
+                    let main = tenth[left] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                    return main
+                }
+
+                
+            }
+        
+            else if (mainLeft <= 19) {
+                if (mainRight <= 19) {
+                    if (middle == 0) {
+                        let main = base[mainLeft] + `${thousand}`+ `${and}` + base[mainRight]
+                        return main
+                    }
+                    let main = base[mainLeft] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + base[mainRight]
+                    return main
+                }
+                    let main = base[mainLeft] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                    return main
+            }
+
+
+            else if (mainLeft > 19) {
+                if (mainRight <= 19) {
+                    if (middle == 0) {
+                        let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + `${and}` + base[mainRight]
+                        return main
+                    }
+                    let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + base[middle] + `${hundred}` + `${and}`  + base[mainRight]
+                    return main
+                }
+                else if (middle == 0) {
+                    let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                    return main 
+                }
+                let main = tenth[left] + `${dash}` + base[left1] + `${thousand}` + base[middle] + `${hundred}` + `${and}` + tenth[right] + `${dash}` + base[right1]
+                return main
+            }
+
+
+            
+        }
+
+    }
+
+    
     return num;
 }
     
